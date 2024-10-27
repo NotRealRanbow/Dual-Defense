@@ -68,7 +68,7 @@ power_displays = {
             font.render(f"Cost: {200}", False, (200, 200, 200))
             ),
     "damage": (font.render(f"Kills all!", False, (200, 200, 200)),
-            font.render(f"Cost: {500}", False, (200, 200, 200))
+            font.render(f"Cost: {1000}", False, (200, 200, 200))
             )
 }
 
@@ -186,7 +186,7 @@ while True:
                 cash_text = font.render(f'Cash: {cash}', False, (0, 0, 0))
             elif (track[mouse_y][mouse_x] == "damage") and (cash >= 500):
                 enemies = []
-                cash -= 50
+                cash -= 1000
                 cash_text = font.render(f'Cash: {cash}', False, (0, 0, 0))
 
             # Place tower
@@ -355,7 +355,7 @@ while True:
     # Or the timer ends
     if buy_timer:
         if time() - buy_timer >= 3:
-            lose = True
+            selected_tower = None
         else:
             timer_text = font.render(f"Time to Place: {3-int(time() - buy_timer)}", False, (240, 240, 240))
             screen.blit(timer_text, (25, 25))
